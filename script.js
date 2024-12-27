@@ -12,22 +12,36 @@ function updateCountdown() {
   const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
   // 更新數字
-  document.getElementById("days-remaining").textContent = days + 1;
   document.getElementById("days-number").textContent = days;
   document.getElementById("hours-number").textContent = hours;
   document.getElementById("minutes-number").textContent = minutes;
   document.getElementById("seconds-number").textContent = seconds;
 
   // 更新進度條
-  const totalHours = 24;
-  const totalMinutes = 60;
-  const totalSeconds = 60;
+  const daysProgress = (days / 365) * 100;
+  const hoursProgress = (hours / 24) * 100;
+  const minutesProgress = (minutes / 60) * 100;
+  const secondsProgress = (seconds / 60) * 100;
 
-  document.getElementById("days").style.setProperty("--progress", `${(days / 365) * 100}%`);
-  document.getElementById("hours").style.setProperty("--progress", `${(hours / totalHours) * 100}%`);
-  document.getElementById("minutes").style.setProperty("--progress", `${(minutes / totalMinutes) * 100}%`);
-  document.getElementById("seconds").style.setProperty("--progress", `${(seconds / totalSeconds) * 100}%`);
+  document.getElementById("days-progress").style.background = `conic-gradient(
+    #ff6f61 ${daysProgress}%, #d3d3d3 ${daysProgress}%
+  )`;
+
+  document.getElementById("hours-progress").style.background = `conic-gradient(
+    #ffd966 ${hoursProgress}%, #d3d3d3 ${hoursProgress}%
+  )`;
+
+  document.getElementById("minutes-progress").style.background = `conic-gradient(
+    #00bcd4 ${minutesProgress}%, #d3d3d3 ${minutesProgress}%
+  )`;
+
+  document.getElementById("seconds-progress").style.background = `conic-gradient(
+    #6fa8dc ${secondsProgress}%, #d3d3d3 ${secondsProgress}%
+  )`;
 }
 
-// 每秒更新
+// 每秒更新倒數
 setInterval(updateCountdown, 1000);
+
+// 預先執行一次
+updateCountdown();
