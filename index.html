@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>倒數計時</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>-- 倒數 <span id="days-remaining">141</span> 天 --</h1>
+    <div class="countdown">
+      <div class="circle" id="days">
+        <span class="number" id="days-number">140</span>
+        <span class="label">天</span>
+      </div>
+      <div class="circle" id="hours">
+        <span class="number" id="hours-number">11</span>
+        <span class="label">時</span>
+      </div>
+      <div class="circle" id="minutes">
+        <span class="number" id="minutes-number">59</span>
+        <span class="label">分</span>
+      </div>
+      <div class="circle" id="seconds">
+        <span class="number" id="seconds-number">15</span>
+        <span class="label">秒</span>
+      </div>
+    </div>
+    <p class="footer">目前預測114會考日期為2025/05/17</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
